@@ -54,7 +54,7 @@ WIP
 git clone https://github.com/Naccl/Java2Doc.git
 ```
 
-此方式需要 JDK 8（解析 JavaDoc 依赖的 `com.sun.tools` 从 JDK 9+ 开始已经被移除了），否则你可能需要手动修改 `pom.xml`
+此方式需要 JDK 8（解析 JavaDoc 依赖的 `tools.jar` 从 JDK 9+ 开始已经被移除了），否则你可能需要手动修改 `pom.xml`
 
 ```xml
 <!--com.sun.tools-->
