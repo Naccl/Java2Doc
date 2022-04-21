@@ -19,6 +19,15 @@ import java.util.stream.Stream;
  */
 public class FileUtils {
     /**
+     * 获取当前路径
+     *
+     * @return 当前路径
+     */
+    public static String getCurrentPath() {
+        return System.getProperty("user.dir");
+    }
+
+    /**
      * 检查文件或目录是否存在
      *
      * @param path 文件或目录路径
