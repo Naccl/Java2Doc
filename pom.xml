@@ -29,7 +29,7 @@
             <artifactId>tools</artifactId>
             <version>${java.version}</version>
             <scope>system</scope>
-            <systemPath>${java.home}/../lib/tools.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/resources/lib/tools.jar</systemPath>
         </dependency>
         <!--commons-text-->
         <dependency>
