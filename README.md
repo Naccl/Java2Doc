@@ -48,26 +48,55 @@ WIP
 
 ## 使用方法
 
+### CLI
+
+目前推荐此方式，下载[Releases](https://github.com/Naccl/Java2Doc/releases)中的 Java2Doc.jar，通过 CLI 调用，已测试 JDK 8、11 可用，16、17 不太行
+
+```sh
+java -jar Java2Doc-x.y.z.jar -p /Users/naccl/Desktop/YourProject
+```
+
+具体参数：
+
+```sh
+usage: java -jar Java2Doc-x.y.z.jar -p path1[;path2;path3;...] [-n <projectname>] [-v <version>] [-d <desc>] [-o
+            <outputdir>] [-f <filename>] [-t <doctype>]
+    --access-modifier <true/false>           Display access modifier, default is true
+    --custom-template <path>                 Custom template path
+ -d,--description <desc>                     The description of your project
+    --engine-type <type>                     Template engine type, can be 'freemarker'
+ -f,--filename <name>                        Document file name, default is 'Java2Doc'
+ -h,--help                                   This usage help
+    --ignore-class-prefix <prefixlist>       The ignore list of class prefix, separated by ';'
+    --ignore-class-suffix <suffixlist>       The ignore list of class suffix, separated by ';'
+    --ignore-empty-class <true/false>        Ignore classes without field and method, default is false
+    --ignore-error <true/false>              Ignore errors in parsing JavaDoc, default is true
+    --ignore-field-prefix <prefixlist>       The ignore list of field prefix, separated by ';'
+    --ignore-field-suffix <suffixlist>       The ignore list of field suffix, separated by ';'
+    --ignore-method-prefix <prefixlist>      The ignore list of method prefix, separated by ';'
+    --ignore-method-suffix <suffixlist>      The ignore list of method suffix, separated by ';'
+    --ignore-nocomment-field <true/false>    Ignore fields without comment, default is false
+    --ignore-nocomment-method <true/false>   Ignore methods without comment, default is false
+    --ignore-pkg-prefix <prefixlist>         The ignore list of package prefix, separated by ';'
+    --ignore-pkg-suffix <suffixlist>         The ignore list of package suffix, separated by ';'
+    --include-private <true/false>           Parsing JavaDoc includes private classes and members, default is true
+    --max-depth <number>                     The maximum depth to traverse a directory starting from project path
+ -n,--project-name <name>                    The name of your project
+ -o,--output-dir <path>                      Document output directory, default is current directory
+ -p,--project-paths <pathlist>               The list of project paths you want to generate, separated by ';'
+ -t,--doctype <type>                         Document type, can be 'word', 'html', 'md', default is 'word'
+ -v,--version <version>                      The version of your project
+```
+
 ### Clone
 
 ```sh
 git clone https://github.com/Naccl/Java2Doc.git
 ```
 
-此方式需要 JDK 8（解析 JavaDoc 依赖的 `tools.jar` 从 JDK 9+ 开始已经被移除了），否则你可能需要手动修改 `pom.xml`
+建议 JDK 8，解析 JavaDoc 依赖的 `tools.jar` 从 JDK 9+ 开始已经被移除了，虽说我已经使用在 `pom.xml` 中使用本地仓库了，但还是不确定高版本是否可用
 
-```xml
-<!--com.sun.tools-->
-<dependency>
-    <groupId>com.sun</groupId>
-    <artifactId>tools</artifactId>
-    <version>${java.version}</version>
-    <scope>system</scope>
-    <systemPath>${java.home}/../lib/tools.jar</systemPath>
-</dependency>
-```
-
-将本项目 Clone 到本地后，修改 `Main.java` 中的基本配置信息
+修改 `Main.java` 中的基本配置信息
 
 ```java
 //待生成的项目根路径列表
@@ -87,6 +116,14 @@ DocumentType documentType = DocumentType.WORD;
 ```
 
 然后直接 Run 它！
+
+如果你配置过 Maven 镜像仓库，且 Maven 的配置文件（通常是`~/.m2/settings.xml` ）中对应镜像的 `mirrorOf` 是 `*`，那么 `pom.xml` 中配置的 repository 将不起作用，需要改为
+
+```xml
+<mirrorOf>external:*</mirrorOf>
+```
+
+只让外部仓库的走镜像，本地的继续走本地
 
 ### Maven
 
