@@ -22,14 +22,19 @@
         <commons-cli.version>1.5.0</commons-cli.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>java2doc-local</id>
+            <url>file://${project.basedir}/src/main/resources/lib</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <!--com.sun.tools-->
         <dependency>
             <groupId>com.sun</groupId>
             <artifactId>tools</artifactId>
-            <version>${java.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/resources/lib/tools.jar</systemPath>
+            <version>1.8</version>
         </dependency>
         <!--commons-text-->
         <dependency>
