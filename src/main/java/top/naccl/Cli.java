@@ -10,6 +10,7 @@ import org.apache.commons.cli.ParseException;
 import top.naccl.engine.DocumentType;
 import top.naccl.engine.TemplateEngineType;
 import top.naccl.execute.DocumentExecute;
+import top.naccl.util.PropertiesUtils;
 
 import java.util.Arrays;
 
@@ -28,7 +29,7 @@ public class Cli {
     /**
      * 用法提示
      */
-    private static final String USAGE = "java -jar java2doc.jar -p path1[;path2;path3;...] [-n <projectname>] [-v <version>] [-d <desc>] [-o <outputdir>] [-f <filename>] [-t <doctype>]";
+    private static final String USAGE = "java -jar Java2Doc-" + PropertiesUtils.getVersion() + ".jar -p path1[;path2;path3;...] [-n <projectname>] [-v <version>] [-d <desc>] [-o <outputdir>] [-f <filename>] [-t <doctype>]";
     /**
      * 命令行参数列表
      */
@@ -99,7 +100,7 @@ public class Cli {
      * 打印帮助信息
      */
     private void printHelp() {
-        new HelpFormatter().printHelp(150, USAGE, null, options, null);
+        new HelpFormatter().printHelp(120, USAGE, null, options, null);
     }
 
     /**
