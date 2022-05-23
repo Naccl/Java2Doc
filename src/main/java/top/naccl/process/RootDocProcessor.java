@@ -90,12 +90,6 @@ public class RootDocProcessor extends AbstractProcessor {
                     continue;
                 }
 
-                if (!packageMap.containsKey(packageName)) {
-                    //该包名不存在，创建
-                    PackageModel packageModel = new PackageModel(packageName, new ArrayList<>());
-                    packageMap.put(packageName, packageModel);
-                }
-
                 List<FieldModel> fieldList = new ArrayList<>();
                 List<MethodModel> methodList = new ArrayList<>();
 
@@ -139,6 +133,11 @@ public class RootDocProcessor extends AbstractProcessor {
                     continue;
                 }
                 ClassModel classModel = new ClassModel(classDoc.name(), fieldList, methodList);
+                if (!packageMap.containsKey(packageName)) {
+                    //该包名不存在，创建
+                    PackageModel packageModel = new PackageModel(packageName, new ArrayList<>());
+                    packageMap.put(packageName, packageModel);
+                }
                 packageMap.get(packageName).getClassList().add(classModel);
             }
         }
