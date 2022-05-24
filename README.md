@@ -19,10 +19,8 @@ P.s. 即使是不能通过编译的 Java Class 也可以生成，只要有 `.jav
 ## 文档生成支持
 
 - [x] Word
-- [ ] HTML
-- [ ] Markdown
-
-WIP
+- [x] HTML
+- [x] Markdown
 
 ## 文档截图
 
@@ -32,11 +30,11 @@ WIP
 
 - HTML
 
-WIP
+![HTML](./docs/html.png)
 
 - Markdown
 
-WIP
+![Markdown](./docs/markdown.png)
 
 
 
@@ -50,17 +48,16 @@ WIP
 
 ### CLI
 
-目前推荐此方式，下载[Releases](https://github.com/Naccl/Java2Doc/releases)中的 Java2Doc.jar，通过 CLI 调用，已测试 JDK 8、11 可用，16、17 不太行
+目前推荐此方式，下载 [Releases](https://github.com/Naccl/Java2Doc/releases) 中的 Java2Doc.jar，通过 CLI 调用，已测试 JDK 8、11 可用，16、17 不太行
 
 ```sh
-java -jar Java2Doc-x.y.z.jar -p /Users/naccl/Desktop/YourProject
+java -jar Java2Doc-x.y.z.jar -p /Users/username/YourProjectPath
 ```
 
 具体参数：
 
-```sh
-usage: java -jar Java2Doc-x.y.z.jar -p path1[;path2;path3;...] [-n <projectname>] [-v <version>] [-d <desc>] [-o
-            <outputdir>] [-f <filename>] [-t <doctype>]
+```
+usage: java -jar Java2Doc-x.y.z.jar -p path1[;path2;path3;...] [-n <projectname>] [-v <version>] [-d <desc>] [-o <outputdir>] [-f <filename>] [-t <doctype>]
     --access-modifier <true/false>           Display access modifier, default is true
     --custom-template <path>                 Custom template path
  -d,--description <desc>                     The description of your project
@@ -127,7 +124,7 @@ DocumentType documentType = DocumentType.WORD;
 
 ### Maven
 
-WIP......<sub>（等我写完论文🥵）</sub>
+WIP
 
 ## 已知问题
 
@@ -155,4 +152,5 @@ WIP......<sub>（等我写完论文🥵）</sub>
 
 ## Thanks
 
-再次感谢[screw](https://github.com/pingfangushi/screw)，项目实现过程中参考了screw的设计思路
+再次感谢 [screw](https://github.com/pingfangushi/screw)，项目实现过程中参考了 screw 的设计思路
+
